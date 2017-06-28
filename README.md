@@ -3,6 +3,10 @@ Configuration Server, that push modules access information to the multiple clien
 
 # Prerequisites 
 Visual Studio 2013 Update 4, SQL Server 2014, Git for Windows
+
+#Technologies 
+MVC Webapi, C#, Unity IoC, Nibernate, FluentNhiberate.
+
 # Project Definitions 
 
 1. SCServer.Api: It is a MVC web api project in C#.  It contains controller and end points where data can fetched for different customers provider they sceret key.
