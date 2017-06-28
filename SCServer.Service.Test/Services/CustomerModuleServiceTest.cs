@@ -49,19 +49,7 @@ namespace SCServer.Service.Test
           };
       }
  
-      [TestMethod]
-      public void Customer_Get_All()
-      {
-          //Arrange
-          _mockCustomerRepository.Setup(x => x.GetAll()).Returns(listCustomer.AsQueryable());
- 
-          //Act
-          List<Customer> results = _service.GetAll() as List<Customer>;
- 
-          //Assert
-          Assert.IsNotNull(results);
-          Assert.AreEqual(3, results.Count);
-      }
+      
  
  
       [TestMethod]
