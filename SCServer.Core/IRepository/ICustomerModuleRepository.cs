@@ -7,7 +7,7 @@ using SCServer.Core.Model;
 
 namespace SCServer.Core.IRepository
 {
-    public interface ICustomerModuleRepository : IBaseRepository<CustomerModule, Guid>
+    public interface IEditionModuleRepository : IBaseRepository<EditionModule, Guid>
     {
     }
 }

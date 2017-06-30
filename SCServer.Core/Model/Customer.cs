@@ -9,12 +9,12 @@ namespace SCServer.Core.Model
     {
         public Customer()
         {
-            CustomerModules = new List<CustomerModule>();
+            EditionModules = new List<EditionModule>();
         }
 
         
         public virtual Guid? SecurityKey { get; set; }
 
-        public virtual IList<CustomerModule> CustomerModules { get; set; }
+        public virtual IList<EditionModule> EditionModules { get; set; }
     }
 }

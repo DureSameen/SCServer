@@ -15,14 +15,14 @@ using System.Linq;
 namespace SCServer.Service.Test
 {
     [TestClass]
-    public class CustomerModuleServiceTest : InMemoryDatabaseTest 
+    public class EditionModuleserviceTest : InMemoryDatabaseTest 
     {
-        public CustomerModuleServiceTest()
+        public EditionModuleserviceTest()
             : base()
           { }
        
-      private Mock<ICustomerModuleRepository> _mockRepository;
-      private ICustomerModuleService _service;
+      private Mock<IEditionModuleRepository> _mockRepository;
+      private IEditionModuleservice _service;
       IUnitOfWork  _mockUnitWork;
       
 
@@ -36,13 +36,13 @@ namespace SCServer.Service.Test
       {
 
 
-          _mockRepository = new Mock<ICustomerModuleRepository>();
+          _mockRepository = new Mock<IEditionModuleRepository>();
           _mockCustomerRepository = new Mock<ICustomerRepository>();
           _mockUnitWork = new UnitOfWork(this, _mockCustomerRepository.Object ,_mockRepository.Object);
 
 
           _customerservice = new CustomerService(_mockUnitWork);
-          _service = new CustomerModuleService(_mockUnitWork);
+          _service = new EditionModuleservice(_mockUnitWork);
           listCustomer = new List<Core.Model.Customer>() {
            new   Core.Model.Customer() { Id = Guid.NewGuid (), Name = "XYZ Company" } 
           

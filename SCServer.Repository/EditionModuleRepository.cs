@@ -11,11 +11,11 @@ using NHibernate.Linq;
 
 namespace SCServer.Repository
 {
-    public class CustomerModuleRepository : BaseRepository<CustomerModule, Guid>, ICustomerModuleRepository
+    public class EditionModuleRepository : BaseRepository<EditionModule, Guid>, IEditionModuleRepository
     {
         private ISession _session;
 
-        public CustomerModuleRepository(INHibernateContext context)
+        public EditionModuleRepository(INHibernateContext context)
             : base(context)
         {
             _session = context.NHibernateSession;

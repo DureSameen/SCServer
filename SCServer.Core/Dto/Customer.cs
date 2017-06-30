@@ -12,6 +12,6 @@ namespace SCServer.Core.Dto
        
         public Guid? SecurityKey { get; set; }
 
-        public virtual IList<CustomerModule> CustomerModules { get; set; }
+        public virtual IList<EditionModule> EditionModules { get; set; }
     }
 }

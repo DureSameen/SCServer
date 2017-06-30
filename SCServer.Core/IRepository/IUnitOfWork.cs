@@ -12,7 +12,7 @@ namespace SCServer.Core.IRepository
     public interface IUnitOfWork : IDisposable
     {
         ICustomerRepository CustomerRepository { get; set; }
-        ICustomerModuleRepository CustomerModuleRepository { get; set; }
+        IEditionModuleRepository EditionModuleRepository { get; set; }
         ISession Session { get; }
         void BeginTransaction(IsolationLevel isolationLevel = IsolationLevel.ReadCommitted);
         void Commit();

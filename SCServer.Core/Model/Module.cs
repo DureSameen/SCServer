@@ -9,14 +9,14 @@ namespace SCServer.Core.Model
     {
         public Module()
         {
-            CustomerModules = new List<CustomerModule>();
+            EditionModules = new List<EditionModule>();
             Features = new List<Feature>();
         }
 
 
       
 
-        public virtual IList<CustomerModule> CustomerModules { get; set; }
+        public virtual IList<EditionModule> EditionModules { get; set; }
 
         public virtual IList<Feature> Features { get; set; }
     }

@@ -4,7 +4,7 @@ using System.Collections.Generic;
  namespace SCServer.Core.Model
 {
 
-     public partial class CustomerModule : AuditableEntity
+     public partial class EditionModule : AuditableEntity
     {
          
 

@@ -15,12 +15,12 @@ namespace SCServer.Repository
         private ISession _session;
         private ITransaction _transaction;
         private ICustomerRepository _customerRepository;
-        private ICustomerModuleRepository _customerModuleRepository;
+        private IEditionModuleRepository _EditionModuleRepository;
 
         public ISession Session { get { return _session; } }
 
         public ICustomerRepository CustomerRepository { get { return _customerRepository; } set { _customerRepository = value; } }
-        public ICustomerModuleRepository CustomerModuleRepository { get { return _customerModuleRepository; } set { _customerModuleRepository = value; } }
+        public IEditionModuleRepository EditionModuleRepository { get { return _EditionModuleRepository; } set { _EditionModuleRepository = value; } }
 
 
         public UnitOfWork(INHibernateContext context, ICustomerRepository customerRepository)
@@ -30,11 +30,11 @@ namespace SCServer.Repository
             
              
         }
-        public UnitOfWork(INHibernateContext context, ICustomerRepository customerRepository, ICustomerModuleRepository customerModuleRepository)
+        public UnitOfWork(INHibernateContext context, ICustomerRepository customerRepository, IEditionModuleRepository EditionModuleRepository)
         {
             _session = context.NHibernateSession;
             _customerRepository = customerRepository;
-            _customerModuleRepository = customerModuleRepository;
+            _EditionModuleRepository = EditionModuleRepository;
 
         }
         public void BeginTransaction(IsolationLevel isolationLevel = IsolationLevel.ReadCommitted)

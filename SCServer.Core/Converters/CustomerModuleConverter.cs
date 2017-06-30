@@ -10,35 +10,35 @@ using SCServer.Core.Model;
 
 namespace SCServer.Core.Converters
 {
-    public static class CustomerModuleConverter
+    public static class EditionModuleConverter
     {
-        public static Dto.CustomerModule ConvertToDto(this Model.CustomerModule customermodule)
+        public static Dto.EditionModule ConvertToDto(this Model.EditionModule EditionModule)
         {
-            Dto.CustomerModule customermoduleDto = new Dto.CustomerModule
+            Dto.EditionModule EditionModuleDto = new Dto.EditionModule
             {
-                Id = customermodule.Id,
-                CustomerId= customermodule.CustomerId,
-                FeatureId = customermodule.FeatureId,
-                ModuleId= customermodule.ModuleId,
-                PrivilegeId= customermodule.PrivilegeId
+                Id = EditionModule.Id,
+                CustomerId= EditionModule.CustomerId,
+                FeatureId = EditionModule.FeatureId,
+                ModuleId= EditionModule.ModuleId,
+                PrivilegeId= EditionModule.PrivilegeId
             }; 
 
-            return customermoduleDto;
+            return EditionModuleDto;
         }
 
-        public static Model.CustomerModule ConvertToEntity(this Dto.CustomerModule customermoduleDto, Model.CustomerModule customermodule = null)
+        public static Model.EditionModule ConvertToEntity(this Dto.EditionModule EditionModuleDto, Model.EditionModule EditionModule = null)
         {
-            if (customermodule == null)
-                customermodule = new Model.CustomerModule();
+            if (EditionModule == null)
+                EditionModule = new Model.EditionModule();
 
-                customermodule.Id = customermoduleDto.Id;
-                customermodule.CustomerId= customermoduleDto.CustomerId;
-                customermodule.FeatureId = customermoduleDto.FeatureId;
-                customermodule.ModuleId= customermoduleDto.ModuleId;
-                customermodule.PrivilegeId = customermoduleDto.PrivilegeId;
+                EditionModule.Id = EditionModuleDto.Id;
+                EditionModule.CustomerId= EditionModuleDto.CustomerId;
+                EditionModule.FeatureId = EditionModuleDto.FeatureId;
+                EditionModule.ModuleId= EditionModuleDto.ModuleId;
+                EditionModule.PrivilegeId = EditionModuleDto.PrivilegeId;
            
 
-            return customermodule;
+            return EditionModule;
         }
     }
 }

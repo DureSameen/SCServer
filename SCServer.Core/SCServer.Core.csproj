@@ -84,7 +84,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Dto\Customer.cs" />
-    <Compile Include="Dto\CustomerModule.cs" />
+    <Compile Include="Dto\EditionModule.cs" />
     <Compile Include="Dto\Feature.cs" />
     <Compile Include="Dto\Module.cs" />
     <Compile Include="Dto\Privilege.cs" />
@@ -136,7 +136,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Model\Customer.cs" />
-    <Compile Include="Model\CustomerModule.cs" />
+    <Compile Include="Model\EditionModule.cs" />
     <Compile Include="Model\Entity.cs">
       <SubType>Code</SubType>
     </Compile>
