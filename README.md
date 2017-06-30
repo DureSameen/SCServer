@@ -4,7 +4,7 @@ Configuration Server, that push modules access information to the multiple clien
 # Prerequisites 
 Visual Studio 2013 Update 4, SQL Server 2014, Git for Windows
 
-#Technologies 
+# Technologies 
 MVC Webapi, C#, Unity IoC, Nibernate, FluentNhiberate.
 
 # Project Definitions 
@@ -17,4 +17,15 @@ MVC Webapi, C#, Unity IoC, Nibernate, FluentNhiberate.
 
 4.  SCServer.Repository : This class library contains generic and customized implementations of all CURD operation.
 
-5.  SCServer.Servies    : This class library reference SCServer.Repository for database operations and business logics can be added here.
+5. SCServer.Servies    : This class library reference SCServer.Repository for database operations and business logics can be added here.
+
+6. SCServer.Servies.Test : Unit testing of service layer.
+
+7.  SCServer_DB         : Dabase objects holder project.  
+
+# How To Run Web Api
+
+1. Download or clone application
+2. Publish Database project.
+3. Update SCServer.Api web.config connection string.
+4. Run SCServer.Api or  SCServer.Servies.Test
