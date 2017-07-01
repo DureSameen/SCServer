@@ -42,7 +42,7 @@ namespace SCServer.Service.Test
 
 
           _customerservice = new CustomerService(_mockUnitWork);
-          _service = new EditionModuleservice(_mockUnitWork);
+          _service = new EditionModuleService(_mockUnitWork);
           listCustomer = new List<Core.Model.Customer>() {
            new   Core.Model.Customer() { Id = Guid.NewGuid (), Name = "XYZ Company" } 
           
