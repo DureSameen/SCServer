@@ -21,6 +21,3 @@ MVC Webapi, C#, Unity IoC, Nibernate, FluentNhiberate.
 
 6. SCServer.Servies.Test : Unit testing of service layer.
 
-7.  SCServer_DB         : Dabase objects holder project.  
-
- 
