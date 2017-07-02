@@ -8,7 +8,7 @@ using FluentNHibernate.Mapping;
 
 namespace SCServer.Core.Mapping
 {
-    public class EditionModuleMap : BasicMap<EditionModule>
+    public class EditionModuleMap : AuditableMap<EditionModule>
     {
         public EditionModuleMap()
         {

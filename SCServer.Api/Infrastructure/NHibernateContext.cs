@@ -10,7 +10,7 @@ namespace SCServer.Api.Infrastructure
 {
     public class NHibernateContext : INHibernateContext
     {
-        private readonly string _connectionString = ConfigurationHelper.GetConnectionString("SocomServer_Conn");
+        private readonly string _connectionString = ConfigurationHelper.GetConnectionString("SCServer_Conn");
         private const string _nHibernateContext = "NHibernateContext";
 
         public ISession NHibernateSession
