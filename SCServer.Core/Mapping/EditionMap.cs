@@ -8,13 +8,13 @@ using FluentNHibernate.Mapping;
 
 namespace SCServer.Core.Mapping
 {
-    public class CustomerMap : BasicMap<Customer>
+    public class EditionMap : BasicMap<Edition>
     {
-        public CustomerMap()
+        public EditionMap()
         {
-            Table("Customer");
-            Map(x => x.SecurityKey);
-            Map(x => x.EditionId);
+            Table("Edition");
+            
+           
         }
     }
 }

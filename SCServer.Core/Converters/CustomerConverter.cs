@@ -19,6 +19,7 @@ namespace SCServer.Core.Converters
                 Id = customer.Id,
                 SecurityKey = customer.SecurityKey,
                 Name= customer.Name ,
+               
                 Enabled= customer.Enabled,
   
             };

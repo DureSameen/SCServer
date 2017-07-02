@@ -12,9 +12,10 @@ namespace SCServer.Core.Model
             EditionModules = new List<EditionModule>();
         }
 
-        
+        public virtual Guid? EditionId { get; set; }
+       
         public virtual Guid? SecurityKey { get; set; }
-
+        public virtual Edition Edition { get; set; }
         public virtual IList<EditionModule> EditionModules { get; set; }
     }
 }

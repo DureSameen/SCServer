@@ -20,5 +20,12 @@ namespace SCServer.Repository
         {
             _session = context.NHibernateSession;
         }
+
+
+        public IEnumerable<EditionModule> GetByEditionId(Guid? EditionId) 
+      {
+
+          return _session.Query<EditionModule>().Where(em => em.EditionId == EditionId).ToList(); 
+      }
     }
 }

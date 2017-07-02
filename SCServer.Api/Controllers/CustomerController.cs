@@ -45,5 +45,7 @@ namespace SCServer.Api.Controllers
         {
             _customerService.Delete(id);
         }
+
+
     }
 }

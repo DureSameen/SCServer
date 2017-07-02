@@ -5,20 +5,17 @@ namespace SCServer.Core.Model
 {
 
 
-    public partial class Module : BasicEntity
+    public partial class Edition : BasicEntity
     {
-        public Module()
+        public Edition()
         {
             EditionModules = new List<EditionModule>();
-            Features = new List<Feature>();
+           
         }
 
-
-
-        public virtual string TypeName { get; set; }
-
+         
         public virtual IList<EditionModule> EditionModules { get; set; }
 
-        public virtual IList<Feature> Features { get; set; }
+        
     }
 }

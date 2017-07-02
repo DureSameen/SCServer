@@ -20,5 +20,12 @@ namespace SCServer.Repository
         {
             _session = context.NHibernateSession;
         }
+
+        public Customer GetBySecretKey(Guid key)
+        {
+
+            return _session.Query<Customer>().Where(c => c.SecurityKey == key).FirstOrDefault(); 
+        
+        }
     }
 }

@@ -86,6 +86,7 @@
     <Compile Include="Dto\Customer.cs" />
     <Compile Include="Dto\EditionModule.cs" />
     <Compile Include="Dto\Feature.cs" />
+    <Compile Include="Dto\Edition.cs" />
     <Compile Include="Dto\Module.cs" />
     <Compile Include="Dto\Privilege.cs" />
     <Compile Include="Enums\OperationType.cs">
@@ -127,6 +128,8 @@
     <Compile Include="Mapping\AuditableMap.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Mapping\EditionModule.cs" />
+    <Compile Include="Mapping\EditionMap.cs" />
     <Compile Include="Mapping\CustomerMap.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -148,6 +151,7 @@
     <Compile Include="Model\IBaseEntity.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Model\Edition.cs" />
     <Compile Include="Model\Module.cs" />
     <Compile Include="Model\Privilege.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

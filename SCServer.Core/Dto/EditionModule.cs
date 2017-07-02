@@ -16,6 +16,11 @@ using System.Collections.Generic;
 
         public Guid? PrivilegeId { get; set; }
 
+        public Guid? EditionId { get; set; }
+
+        public virtual Edition Edition { get; set; }
+
+
         public virtual Customer Customer { get; set; }
 
         public virtual Feature Feature { get; set; }

@@ -9,5 +9,6 @@ namespace SCServer.Core.IService
 {
     public interface ICustomerService : IBaseService<Customer, Guid>
     {
+        Core.Dto.Customer GetBySecretKey(Guid secretkey);
     }
 }

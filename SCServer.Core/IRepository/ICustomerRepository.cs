@@ -9,5 +9,7 @@ namespace SCServer.Core.IRepository
 {
     public interface ICustomerRepository : IBaseRepository<Customer, Guid>
     {
+
+          Customer GetBySecretKey(Guid key);
     }
 }

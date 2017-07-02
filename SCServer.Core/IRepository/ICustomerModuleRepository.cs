@@ -9,5 +9,7 @@ namespace SCServer.Core.IRepository
 {
     public interface IEditionModuleRepository : IBaseRepository<EditionModule, Guid>
     {
+        IEnumerable<EditionModule> GetByEditionId(Guid? EditionId);
+
     }
 }

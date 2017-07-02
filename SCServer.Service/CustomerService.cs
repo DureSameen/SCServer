@@ -93,5 +93,18 @@ namespace SCServer.Service
             _unitOfWork.CustomerRepository.Delete(customer);
             _unitOfWork.Commit();
         }
+
+        public Core.Dto.Customer GetEditionUrl(Guid secretkey)
+        {
+
+            var customer = _unitOfWork.CustomerRepository.GetBySecretKey(secretkey);
+
+
+
+            var allmodules= _unitOfWork.EditionModuleRepository.GetByEditionId(customer.EditionId);
+
+            return customer.ConvertToDto ();
+        
+        }
     }
 }
