@@ -12,7 +12,7 @@ namespace SCServer.Core.Mapping
     {
         public EditionModuleMap()
         {
-            Table("EditionModule");
+            Table("EditionModules");
                 Map(e=>e.CustomerId);
                 Map(e=>e.ModuleId);
                 Map(e=>e.FeatureId);

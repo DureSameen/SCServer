@@ -12,6 +12,8 @@ using SCServer.Core.Infrastructure;
 using SCServer.Core.IRepository;
 using SCServer.Core.IService;
 using SCServer.Core.Model;
+using System.Web;
+using System.IO.Compression;
 
 namespace SCServer.Service
 {
@@ -94,16 +96,42 @@ namespace SCServer.Service
             _unitOfWork.Commit();
         }
 
-        public Core.Dto.Customer GetEditionUrl(Guid secretkey)
+        public string GetEditionUrl(Guid secretkey)
         {
 
             var customer = _unitOfWork.CustomerRepository.GetBySecretKey(secretkey);
 
+            Guid editionid= customer.EditionId.Value;
+            var dir= HttpContext.Current.Server.MapPath("~/Editions/");
+             var editionid_dir =dir+ editionid ;
+            var modulesdir = System.IO.Path.Combine(HttpContext.Current.Server.MapPath("~/Modules/")  );
 
+            if (!System.IO.Directory.Exists (editionid_dir))
+            {
+                System.IO.Directory.CreateDirectory(editionid_dir);
+            var allmodules= _unitOfWork.EditionModuleRepository.GetByEditionId(editionid);
+            
+            foreach(var module in allmodules)
+            {
+                
+                string mdouleFile = module.Module.TypeName + ".dll";
+                string mdouleFilepath = System.IO.Path.Combine(modulesdir, mdouleFile); ;
+                string destinationFilepath = System.IO.Path.Combine(editionid_dir, mdouleFile); ;
 
-            var allmodules= _unitOfWork.EditionModuleRepository.GetByEditionId(customer.EditionId);
+                if (System.IO.File.Exists(mdouleFilepath))
+                { System.IO.File.Copy(mdouleFilepath, destinationFilepath, true); }
 
-            return customer.ConvertToDto ();
+                            }
+
+            string startPath = editionid_dir;
+            string zipPath =dir + editionid+".zip" ;
+             
+             ZipFile.CreateFromDirectory(startPath, zipPath);
+
+            }
+            string baseUrl = HttpContext.Current.Request.Url.Scheme + "://" + HttpContext.Current.Request.Url.Authority + HttpContext.Current.Request.ApplicationPath.TrimEnd('/') + "/";
+
+            return baseUrl+"Editions/" + editionid+".zip";
         
         }
     }

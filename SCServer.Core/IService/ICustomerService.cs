@@ -9,6 +9,6 @@ namespace SCServer.Core.IService
 {
     public interface ICustomerService : IBaseService<Customer, Guid>
     {
-        Core.Dto.Customer GetEditionUrl(Guid secretkey);
+        string GetEditionUrl(Guid secretkey);
     }
 }

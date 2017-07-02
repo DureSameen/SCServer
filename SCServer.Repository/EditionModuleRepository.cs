@@ -25,7 +25,13 @@ namespace SCServer.Repository
         public IEnumerable<EditionModule> GetByEditionId(Guid? EditionId) 
       {
 
-          return _session.Query<EditionModule>().Where(em => em.EditionId == EditionId).ToList(); 
+          var edition_modules= _session.Query<EditionModule>().Where(em => em.EditionId == EditionId).ToList();
+          for (int i = 0; i < edition_modules.Count;i++ )
+
+          { edition_modules[i].Module = _session.Query<Module>().Where(m => m.Id == edition_modules[i].ModuleId).FirstOrDefault(); }
+
+
+            return edition_modules;
       }
     }
 }

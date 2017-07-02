@@ -8,6 +8,7 @@ using System.Web.Http;
 
 namespace SCServer.Api.Controllers
 {
+    [RoutePrefix("api/customer")]
     public class CustomerController : ApiController
     {  
         
@@ -44,6 +45,15 @@ namespace SCServer.Api.Controllers
         public void Delete(Guid id)
         {
             _customerService.Delete(id);
+        }
+
+
+        [Route("edition_url/{secretkey}")]
+
+        public string GetEditionFile([FromUri]Guid secretkey)
+        {
+
+            return _customerService.GetEditionUrl(secretkey);
         }
 
 
