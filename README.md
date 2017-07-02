@@ -21,11 +21,3 @@ MVC Webapi, C#, Unity IoC, Nibernate, FluentNhiberate.
 
 6. SCServer.Servies.Test : Unit testing of service layer.
 
-7.  SCServer_DB         : Dabase objects holder project.  
-
-# How To Run Web Api
-
-1. Download or clone application
-2. Publish Database project.
-3. Update SCServer.Api web.config connection string.
-4. Run SCServer.Api or  SCServer.Servies.Test
