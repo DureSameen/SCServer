@@ -1,7 +1,7 @@
 ﻿using System;
 namespace SCServer.Common.Helpers
 {
-    interface IWebApiHelper
+   public interface IWebApiHelper
     {
         string AccessToken { get; set; }
         string ApiName { get; set; }

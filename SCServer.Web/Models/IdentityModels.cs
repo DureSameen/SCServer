@@ -29,5 +29,9 @@ namespace SCServer.Web.Models
         {
             return new ApplicationDbContext();
         }
+
+        public System.Data.Entity.DbSet<SCServer.Core.Dto.Customer> Customers { get; set; }
+
+        public System.Data.Entity.DbSet<SCServer.Core.Dto.Edition> Editions { get; set; }
     }
 }
