@@ -10,7 +10,7 @@ using System.Web;
 
 namespace SCServer.Common.Helpers
 {   
-    public class WebApiHelper : IWebApiHelper  
+    public class WebApiHelper : SCServer.Common.Helpers.IWebApiHelper  
     {
          public string Serviceurl { get { return Configurations.Api_URL() +"api/"; } }
          public string ApiName { get;set; }
