@@ -14,6 +14,7 @@ using SCServer.Core.IService;
 using SCServer.Core.Model;
 using System.Web;
 using System.IO.Compression;
+using SC.ViewModel;
 
 namespace SCServer.Service
 {
@@ -102,37 +103,73 @@ namespace SCServer.Service
             var customer = _unitOfWork.CustomerRepository.GetBySecretKey(secretkey);
 
             Guid editionid= customer.EditionId.Value;
+
+            //dir on webapi project where all editions zip files will be present.
+
             var dir= HttpContext.Current.Server.MapPath("~/Editions/");
-             var editionid_dir =dir+ editionid ;
+            
+            //dir of a edition 
+
+            var editionid_dir =dir+ editionid ;
+            var editition_modules_dir = editionid_dir + "//Modules";
+            
+            //dir where modules files are uploaded 
+
+
             var modulesdir = System.IO.Path.Combine(HttpContext.Current.Server.MapPath("~/Modules/")  );
 
-            if (!System.IO.Directory.Exists (editionid_dir))
+            if (!System.IO.Directory.Exists(editionid_dir))
             {
                 System.IO.Directory.CreateDirectory(editionid_dir);
-            var allmodules= _unitOfWork.EditionModuleRepository.GetByEditionId(editionid);
-            
-            foreach(var module in allmodules)
-            {
-                
-                string mdouleFile = module.Module.TypeName + ".dll";
-                string mdouleFilepath = System.IO.Path.Combine(modulesdir, mdouleFile); ;
-                string destinationFilepath = System.IO.Path.Combine(editionid_dir, mdouleFile); ;
+                System.IO.Directory.CreateDirectory(editition_modules_dir);
+                var allmodules = _unitOfWork.EditionModuleRepository.GetByEditionId(editionid);
 
-                if (System.IO.File.Exists(mdouleFilepath))
-                { System.IO.File.Copy(mdouleFilepath, destinationFilepath, true); }
 
-                            }
+                EditionInfo edition_info = new EditionInfo();
 
-            string startPath = editionid_dir;
-            string zipPath =dir + editionid+".zip" ;
-             
-             ZipFile.CreateFromDirectory(startPath, zipPath);
+                foreach (var module in allmodules)
+                {
+                    ModuleVm module_vm = new ModuleVm();
+
+                    string mdouleFile = module.Module.TypeName + ".dll";
+
+                    module_vm.TypeName = mdouleFile;
+                    module_vm.Name = module.Module.Name;
+
+                    string mdouleFilepath = System.IO.Path.Combine(modulesdir, mdouleFile); ;
+                    string destinationFilepath = System.IO.Path.Combine(editition_modules_dir, mdouleFile); ;
+
+                    if (System.IO.File.Exists(mdouleFilepath))
+                    { System.IO.File.Copy(mdouleFilepath, destinationFilepath, true); }
+
+
+                    edition_info.Modules.Add(module_vm);
+
+                }
+
+                //create customer modules  information json file.
+                string startPath = editionid_dir;
+
+                var json = JsonHelper.Serialize(edition_info);
+
+                System.IO.File.WriteAllText(startPath + "//edition_info.json", json);
+
+               
+                string zipPath = dir + editionid + ".zip";
+
+                ZipFile.CreateFromDirectory(startPath, zipPath);
+
+                 
 
             }
+
             string baseUrl = HttpContext.Current.Request.Url.Scheme + "://" + HttpContext.Current.Request.Url.Authority + HttpContext.Current.Request.ApplicationPath.TrimEnd('/') + "/";
 
             return baseUrl+"Editions/" + editionid+".zip";
         
         }
+
+
+
     }
 }
