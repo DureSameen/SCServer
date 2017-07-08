@@ -9,13 +9,13 @@ namespace SCServer.Core.Model
     {
         public Privilege()
         {
-            EditionModules = new List<EditionModule>();
+            ModulePrivileges = new List<ModulePrivilege>();
         }
          
 
         public virtual Guid? FeatureId { get; set; }
 
-        public virtual IList<EditionModule> EditionModules { get; set; }
+        public virtual IList<ModulePrivilege> ModulePrivileges { get; set; }
 
         public virtual Feature Feature { get; set; }
     }

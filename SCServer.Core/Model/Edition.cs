@@ -9,12 +9,13 @@ namespace SCServer.Core.Model
     {
         public Edition()
         {
-            EditionModules = new List<EditionModule>();
+            ModulePrivileges = new List<ModulePrivilege>();
            
         }
 
-         
-        public virtual IList<EditionModule> EditionModules { get; set; }
+        public virtual int Sort_Key { get; set; }
+
+        public virtual IList<ModulePrivilege> ModulePrivileges { get; set; }
 
         
     }

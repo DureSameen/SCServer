@@ -8,9 +8,10 @@ namespace SCServer.Core.Dto
     public class Edition : BasicDto
     {
 
-        
 
-        public virtual IList<EditionModule> EditionModules { get; set; }
+        public virtual int Sort_Key { get; set; }
+
+        public virtual IList<ModulePrivilege> ModulePrivileges { get; set; }
 
          
     }

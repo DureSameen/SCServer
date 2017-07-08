@@ -9,7 +9,7 @@ namespace SCServer.Core.Dto
 
         public Guid? ModuleId { get; set; }
 
-        public virtual IList<EditionModule> EditionModules { get; set; }
+        public virtual IList<ModulePrivilege> ModulePrivileges { get; set; }
 
         public virtual Module Module { get; set; }
 

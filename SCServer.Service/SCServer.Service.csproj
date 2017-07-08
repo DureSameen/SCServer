@@ -41,7 +41,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="EditionModuleService.cs" />
+    <Compile Include="EditionService.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="FeatureService.cs" />
+    <Compile Include="ModulePrivilegeService.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ModuleService.cs" />
+    <Compile Include="PrivilegeService.cs" />
+    <Compile Include="SectionModulesService.cs" />
+    <Compile Include="SectionService.cs" />
     <Compile Include="CustomerService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

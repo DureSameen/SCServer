@@ -8,11 +8,11 @@ using FluentNHibernate.Mapping;
 
 namespace SCServer.Core.Mapping
 {
-    public class EditionModuleMap : AuditableMap<EditionModule>
+    public class ModulePrivilegeMap : AuditableMap<ModulePrivilege>
     {
-        public EditionModuleMap()
+        public ModulePrivilegeMap()
         {
-            Table("EditionModules");
+            Table("ModulePrivileges");
                 Map(e=>e.CustomerId);
                 Map(e=>e.ModuleId);
                 Map(e=>e.FeatureId);

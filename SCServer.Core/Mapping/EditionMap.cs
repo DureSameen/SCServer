@@ -13,8 +13,8 @@ namespace SCServer.Core.Mapping
         public EditionMap()
         {
             Table("Edition");
-            
-           
+
+            Map(e => e.Sort_Key);
         }
     }
 }

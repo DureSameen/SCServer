@@ -7,7 +7,7 @@ using SCServer.Core.Dto;
 
 namespace SCServer.Core.IService
 {
-    public interface IEditionModuleservice : IBaseService<EditionModule, Guid>
+    public interface ISectionModulesService : IBaseService<SectionModules, Guid>
     {
     }
 }

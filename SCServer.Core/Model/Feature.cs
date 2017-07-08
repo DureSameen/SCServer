@@ -8,13 +8,13 @@
     {
         public Feature()
         {
-            EditionModules = new List<EditionModule>();
+            ModulePrivileges = new List<ModulePrivilege>();
             Privileges = new List<Privilege>();
         }
 
         public virtual Guid? ModuleId { get; set; }
 
-        public virtual IList<EditionModule> EditionModules { get; set; }
+        public virtual IList<ModulePrivilege> ModulePrivileges { get; set; }
 
         public virtual Module Module { get; set; }
 

@@ -9,7 +9,7 @@ namespace SCServer.Core.Model
     {
         public Module()
         {
-            EditionModules = new List<EditionModule>();
+            ModulePrivileges = new List<ModulePrivilege>();
             Features = new List<Feature>();
         }
 
@@ -17,7 +17,7 @@ namespace SCServer.Core.Model
 
         public virtual string TypeName { get; set; }
 
-        public virtual IList<EditionModule> EditionModules { get; set; }
+        public virtual IList<ModulePrivilege> ModulePrivileges { get; set; }
 
         public virtual IList<Feature> Features { get; set; }
     }

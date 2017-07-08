@@ -21,7 +21,7 @@ namespace SCServer.Web.Models
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public ApplicationDbContext()
-            : base("DefaultConnection", throwIfV1Schema: false)
+            : base("SCServer_Conn", throwIfV1Schema: false)
         {
         }
 
@@ -30,8 +30,6 @@ namespace SCServer.Web.Models
             return new ApplicationDbContext();
         }
 
-        public System.Data.Entity.DbSet<SCServer.Core.Dto.Customer> Customers { get; set; }
-
-        public System.Data.Entity.DbSet<SCServer.Core.Dto.Edition> Editions { get; set; }
+      
     }
 }

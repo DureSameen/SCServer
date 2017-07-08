@@ -74,8 +74,24 @@
     <Compile Include="Attributes\AuditOperation.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Converters\CustomerModuleConverter.cs" />
     <Compile Include="Converters\CustomerConverter.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Converters\SectionModulesConverter.cs" />
+    <Compile Include="Converters\SectionConverter.cs" />
+    <Compile Include="Converters\EditionConverter.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Converters\FeatureConverter.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Converters\ModuleConverter.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Converters\ModulePrivilegeConverter.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Converters\PrivilegeConverter.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Dto\AuditableDto.cs" />
@@ -84,11 +100,15 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Dto\Customer.cs" />
-    <Compile Include="Dto\EditionModule.cs" />
     <Compile Include="Dto\Feature.cs" />
     <Compile Include="Dto\Edition.cs" />
     <Compile Include="Dto\Module.cs" />
+    <Compile Include="Dto\ModulePrivilege.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Dto\Privilege.cs" />
+    <Compile Include="Dto\Section.cs" />
+    <Compile Include="Dto\SectionModules.cs" />
     <Compile Include="Enums\OperationType.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -107,17 +127,39 @@
     <Compile Include="IRepository\IBaseRepository.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="IRepository\ICustomerModuleRepository.cs" />
+    <Compile Include="IRepository\IEditionRepository.cs" />
     <Compile Include="IRepository\ICustomerRepository.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="IRepository\IFeatureRepository.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IRepository\IModulePrivilegeRepository.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IRepository\IModuleRepository.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IRepository\IPrivilegeRepository.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IRepository\ISectionModulesRepository.cs" />
+    <Compile Include="IRepository\ISectionRepository.cs" />
     <Compile Include="IRepository\IUnitOfWork.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="IService\IBaseService.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="IService\ICustomerModuleService.cs" />
+    <Compile Include="IService\IModulePrivilegeService.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IService\IPrivilegeService.cs" />
+    <Compile Include="IService\ISectionService.cs" />
+    <Compile Include="IService\ISectionModulesService.cs" />
+    <Compile Include="IService\IModuleService.cs" />
+    <Compile Include="IService\IFeatureService.cs" />
+    <Compile Include="IService\IEditionService.cs" />
     <Compile Include="IService\ICustomerService.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -128,10 +170,16 @@
     <Compile Include="Mapping\AuditableMap.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Mapping\SectionModulesMap.cs" />
+    <Compile Include="Mapping\SectionMap.cs" />
+    <Compile Include="Mapping\PrivilegeMap.cs" />
+    <Compile Include="Mapping\FeatureMap.cs" />
     <Compile Include="Mapping\ModuleMap.cs" />
-    <Compile Include="Mapping\EditionModule.cs" />
     <Compile Include="Mapping\EditionMap.cs" />
     <Compile Include="Mapping\CustomerMap.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Mapping\ModulePrivilege.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Model\AuditableEntity.cs" />
@@ -140,7 +188,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Model\Customer.cs" />
-    <Compile Include="Model\EditionModule.cs" />
+    <Compile Include="Model\SectionModules.cs" />
+    <Compile Include="Model\Section.cs" />
+    <Compile Include="Model\ModulePrivilege.cs" />
     <Compile Include="Model\Entity.cs">
       <SubType>Code</SubType>
     </Compile>

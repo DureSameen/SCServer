@@ -4,7 +4,7 @@ using System.Collections.Generic;
  namespace  SCServer.Core.Dto
 {
 
-     public   class EditionModule :AuditableDto
+     public   class ModulePrivilege :AuditableDto
     {
          
 

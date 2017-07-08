@@ -122,7 +122,7 @@ namespace SCServer.Service
             {
                 System.IO.Directory.CreateDirectory(editionid_dir);
                 System.IO.Directory.CreateDirectory(editition_modules_dir);
-                var allmodules = _unitOfWork.EditionModuleRepository.GetByEditionId(editionid);
+                var allmodules = _unitOfWork.ModulePrivilegeRepository.GetByEditionId(editionid);
 
 
                 EditionInfo edition_info = new EditionInfo();

@@ -7,9 +7,7 @@ using SCServer.Core.Model;
 
 namespace SCServer.Core.IRepository
 {
-    public interface IEditionModuleRepository : IBaseRepository<EditionModule, Guid>
+    public interface IModuleRepository : IBaseRepository<Module, Guid>
     {
-        IEnumerable<EditionModule> GetByEditionId(Guid? EditionId);
-
     }
 }

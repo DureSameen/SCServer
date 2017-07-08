@@ -10,7 +10,7 @@ namespace SCServer.Core.Dto
 
         public virtual string TypeName { get; set; }
 
-        public virtual IList<EditionModule> EditionModules { get; set; }
+        public virtual IList<ModulePrivilege> ModulePrivileges { get; set; }
 
         public virtual IList<Feature> Features { get; set; }
     }

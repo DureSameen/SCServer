@@ -4,7 +4,7 @@ using System.Collections.Generic;
  namespace SCServer.Core.Model
 {
 
-     public partial class EditionModule : AuditableEntity
+     public partial class ModulePrivilege : AuditableEntity
     {
          
 
@@ -16,7 +16,7 @@ using System.Collections.Generic;
 
         public virtual Guid? PrivilegeId { get; set; }
 
-        public Guid? EditionId { get; set; }
+        public virtual Guid? EditionId { get; set; }
 
         public virtual Edition Edition { get; set; }
 

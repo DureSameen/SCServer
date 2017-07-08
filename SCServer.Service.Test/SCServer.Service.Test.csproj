@@ -83,7 +83,7 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="Services\EditionModuleServiceTest.cs" />
+    <Compile Include="Services\ModulePrivilegeServiceTest.cs" />
     <Compile Include="Services\CustomerServiceTest.cs" />
     <Compile Include="TestHelper\InMemoryDatabaseTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
