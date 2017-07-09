@@ -43,5 +43,32 @@ namespace SCServer.Core.Converters
 
             return module;
         }
+
+
+        public static List<Dto.Module> ForeachToDto(this IList<Model.Module> Modules)
+        {
+
+            List<Dto.Module> ModulesDto = new List<Dto.Module>();
+
+            foreach (var module in Modules)
+            {
+                ModulesDto.Add(module.ConvertToDto());
+            }
+
+            return ModulesDto;
+        }
+
+        public static List<Model.Module> ForeachToEntity(this IList<Dto.Module> ModulesDto)
+        {
+
+            List<Model.Module> modules = new List<Model.Module>();
+
+            foreach (var moduleDto in ModulesDto)
+            {
+                modules.Add(moduleDto.ConvertToEntity());
+            }
+
+            return modules;
+        }
     }
 }

@@ -1,1 +1,1 @@
-{"modules":[{"name":"Trust","typeName":"Module_Trust.dll"},{"name":"Organization","typeName":"Module_Organization.dll"}]}
+{"sections":[{"name":"Customer ","modules":[{"name":"Trust","typeName":"Module_Trust.dll"},{"name":"Organization","typeName":"Module_Organization.dll"}]},{"name":"Sales","modules":[]},{"name":"Basic","modules":[{"name":"Trust","typeName":"Module_Trust.dll"}]},{"name":"Marketing","modules":[]},{"name":"Reports","modules":[]}]}

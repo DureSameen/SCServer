@@ -10,6 +10,7 @@ namespace SCServer.Core.Model
         public Section()
         {
             Edition = new Edition();
+             Modules =new List<Module>();
         }
         public virtual int Sort_Key { get; set; }
 
@@ -17,7 +18,7 @@ namespace SCServer.Core.Model
 
         public virtual Edition Edition { get; set; }
 
-
+        public virtual IList<Module> Modules { get; set; }
       
     }
 }

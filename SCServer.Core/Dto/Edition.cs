@@ -13,6 +13,7 @@ namespace SCServer.Core.Dto
 
         public virtual IList<ModulePrivilege> ModulePrivileges { get; set; }
 
+        public virtual IList<Section> Sections { get; set; }
          
     }
 }

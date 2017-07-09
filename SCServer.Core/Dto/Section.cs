@@ -18,6 +18,8 @@ namespace SCServer.Core.Dto
         public virtual Edition Edition { get; set; }
 
 
+        public virtual IList<Module> Modules { get; set; }
+       
       
     }
 }

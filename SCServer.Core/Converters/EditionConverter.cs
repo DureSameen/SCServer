@@ -18,7 +18,9 @@ namespace SCServer.Core.Converters
             {
                 Enabled = edition.Enabled,
                 Id = edition.Id,
+               
                 ModulePrivileges = edition.ModulePrivileges.ForeachToDto(),
+                Sections=   edition.Sections.ForeachToDto() ,
                 Name = edition.Name,
                  Sort_Key=edition.Sort_Key  
             };

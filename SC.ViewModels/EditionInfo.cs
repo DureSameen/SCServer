@@ -12,12 +12,12 @@ namespace SC.ViewModel
         public EditionInfo()
         {
             Sections = new List<SectionVm>();
-            Modules = new List<ModuleVm>();
+            
         }
 
 
         public List<SectionVm> Sections { get; set; }
 
-        public List<ModuleVm> Modules { get; set; }
+         
     }
 }

@@ -21,7 +21,8 @@ namespace SCServer.Core.Converters
                 EditionId= section.EditionId ,
                 Edition= (section.Edition!=null) ? section.Edition.ConvertToDto():null,
                 Name = section.Name,
-                 Sort_Key=section.Sort_Key  
+                Sort_Key=section.Sort_Key ,
+                Modules = (section.Modules != null) ? section.Modules.ForeachToDto(): null,
             };
 
             return sectionDto;
@@ -42,6 +43,33 @@ namespace SCServer.Core.Converters
             section.Sort_Key = sectionDto.Sort_Key;
 
             return section;
+        }
+
+
+        public static List<Dto.Section> ForeachToDto(this IList<Model.Section> Sections)
+        {
+
+            List<Dto.Section> SectionsDto = new List<Dto.Section>();
+
+            foreach (var section in Sections)
+            {
+                SectionsDto.Add(section.ConvertToDto());
+            }
+
+            return SectionsDto;
+        }
+
+        public static List<Model.Section> ForeachToEntity(this IList<Dto.Section> SectionsDto)
+        {
+
+            List<Model.Section> sections = new List<Model.Section>();
+
+            foreach (var sectionDto in SectionsDto)
+            {
+                sections.Add(sectionDto.ConvertToEntity());
+            }
+
+            return sections;
         }
     }
 }

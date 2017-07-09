@@ -30,7 +30,7 @@ namespace SCServer.Service
         public Core.Dto.Edition Get(Guid id)
         {
             var edition = _unitOfWork.EditionRepository.Get(id);
-
+          
             if (edition == null)
             {
                 ExceptionHelper.ThrowApiException(HttpStatusCode.NotFound, "Edition not found!", "Please provide correct ID.");

@@ -122,19 +122,25 @@ namespace SCServer.Service
             {
                 System.IO.Directory.CreateDirectory(editionid_dir);
                 System.IO.Directory.CreateDirectory(editition_modules_dir);
-                var allmodules = _unitOfWork.ModulePrivilegeRepository.GetByEditionId(editionid);
+                var edition = _unitOfWork.EditionRepository.Get(editionid);
 
 
                 EditionInfo edition_info = new EditionInfo();
 
-                foreach (var module in allmodules)
+                foreach (var section in edition.Sections)
                 {
-                    ModuleVm module_vm = new ModuleVm();
 
-                    string mdouleFile = module.Module.TypeName + ".dll";
+                    var sectionvm= new SectionVm();
+                    
+                    sectionvm.Name = section.Name;
+
+                    foreach(var module in section.Modules )
+                    { ModuleVm module_vm = new ModuleVm();
+
+                    string mdouleFile = module.TypeName + ".dll";
 
                     module_vm.TypeName = mdouleFile;
-                    module_vm.Name = module.Module.Name;
+                    module_vm.Name = module.Name;
 
                     string mdouleFilepath = System.IO.Path.Combine(modulesdir, mdouleFile); ;
                     string destinationFilepath = System.IO.Path.Combine(editition_modules_dir, mdouleFile); ;
@@ -143,7 +149,10 @@ namespace SCServer.Service
                     { System.IO.File.Copy(mdouleFilepath, destinationFilepath, true); }
 
 
-                    edition_info.Modules.Add(module_vm);
+                    sectionvm.Modules.Add(module_vm);
+
+                    }
+                     edition_info.Sections.Add(sectionvm);
 
                 }
 
