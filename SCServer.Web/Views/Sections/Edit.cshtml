@@ -22,7 +22,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.EditionId, "EditionId", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.DropDownList("EditionId", null, htmlAttributes: new { @class = "form-control" })
+                @Html.DropDownListFor(m => m.EditionId, (SelectList)@ViewBag.EditionId,null, new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.EditionId, "", new { @class = "text-danger" })
             </div>
         </div>

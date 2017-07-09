@@ -99,7 +99,7 @@ namespace SCServer.Web.Controllers
         {
             if (ModelState.IsValid)
             {
-                edition.Id = Guid.NewGuid();
+              
                 IWebApiHelper webapi = new WebApiHelper("edition", false);
                 edition = await webapi.Put<Edition>(edition);
                 return RedirectToAction("Index");

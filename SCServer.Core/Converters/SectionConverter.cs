@@ -12,17 +12,17 @@ namespace SCServer.Core.Converters
 {
     public static class SectionConverter
     {
-        public static Dto.Section ConvertToDto(this Model.Section section)
+        public static Dto.Section ConvertToDto(this Model.Section section, bool include_children = false)
         {
             Dto.Section sectionDto = new Dto.Section
             {
                 Enabled = section.Enabled,
                 Id = section.Id,
                 EditionId= section.EditionId ,
-                Edition= (section.Edition!=null) ? section.Edition.ConvertToDto():null,
+                Edition = (section.Edition != null ) ? section.Edition.ConvertToDto() : null,
                 Name = section.Name,
                 Sort_Key=section.Sort_Key ,
-                Modules = (section.Modules != null) ? section.Modules.ForeachToDto(): null,
+                Modules = (section.Modules != null && include_children) ? section.Modules.ForeachToDto(): null,
             };
 
             return sectionDto;

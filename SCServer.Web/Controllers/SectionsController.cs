@@ -18,15 +18,20 @@ namespace SCServer.Web.Controllers
 
 
         // GET: Sections
-        public async Task<ActionResult> Index()
+        public async Task<ActionResult> Index(Guid? id)
         {
 
             IWebApiHelper webapi = new WebApiHelper("section", false);
-            var all_sections = await webapi.Get<List<Section>>("");
+            var all_sections=new List<Section>();
+            if (id.HasValue )
+              all_sections = await webapi.Get<List<Section>>("by_editionid/"+id.ToString());
+            else
+                all_sections = await webapi.Get<List<Section>>("");
+
 
             return View(all_sections);
         }
-
+        
         // GET: Sections/Details/5
         public async Task<ActionResult> Details(Guid? id)
         {
@@ -60,8 +65,9 @@ namespace SCServer.Web.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create([Bind(Include = "Id,Sort_Key,Name,Enabled")] Section section)
+        public async Task<ActionResult> Create([Bind(Include = "Id,Sort_Key,Name,Enabled,EditionId")] Section section)
         {
+            try { 
             if (ModelState.IsValid)
             {
                 section.Id = Guid.NewGuid();
@@ -69,6 +75,9 @@ namespace SCServer.Web.Controllers
                 section = await webapi.Post<Section>("", section);
                 return RedirectToAction("Index");
             }
+            }
+            catch(ApiException exception)
+            {}
             ViewBag.EditionId = await GetEditions(section.EditionId);
             return View(section);
         }
@@ -96,11 +105,11 @@ namespace SCServer.Web.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Edit([Bind(Include = "Id,Sort_Key,Name,Enabled")] Section section)
+        public async Task<ActionResult> Edit([Bind(Include = "Id,Sort_Key,Name,Enabled,EditionId")] Section section)
         {
             if (ModelState.IsValid)
             {
-                section.Id = Guid.NewGuid();
+                 
                 IWebApiHelper webapi = new WebApiHelper("section", false);
                 section = await webapi.Put<Section>(section);
                 return RedirectToAction("Index");
@@ -141,7 +150,7 @@ namespace SCServer.Web.Controllers
             return RedirectToAction("Index");
         }
 
-        private static async Task<List<SelectListItem>> GetEditions(Guid? id)
+        private static async Task<SelectList> GetEditions(Guid? id)
         {
             IWebApiHelper webapi = new WebApiHelper("edition", false);
             var all_editions = await webapi.Get<List<Edition>>("");
@@ -153,13 +162,22 @@ namespace SCServer.Web.Controllers
                 var item = new SelectListItem { Selected = false, Text = edition.Name, Value = edition.Id.ToString() };
                 list.Add(item);
             }
+            int index=1;
+
             if (id.HasValue)
-                list.Where(i => i.Value == id.ToString()).First().Selected=true;
+            {
+                var selected = list.Where(i => i.Value == id.ToString()).First();
+
+                selected.Selected = true;
+                index = list.FindIndex(i => i.Value == id.ToString());
+
+            }
             else
 
                 list.First().Selected = true;
 
-            return list;
+            return new SelectList(list, "Value", "Text", index);
+            
         }
     }
 }

@@ -56,19 +56,37 @@ namespace SCServer.Service
 
             return sectionsDto.OrderBy(s => s.Edition.Sort_Key).OrderBy(s => s.Sort_Key).ToList();
         }
+        public IList<Core.Dto.Section> GetAllbyEditionId(Guid EditionId)
+        {
+            var sections = _unitOfWork.SectionRepository.GetAllbyEditionId(EditionId);
 
+            IList<Core.Dto.Section> sectionsDto = new List<Core.Dto.Section>();
+
+            foreach (var section in sections)
+            {
+                section.Edition = _unitOfWork.EditionRepository.Get(section.EditionId.Value);
+
+                sectionsDto.Add(section.ConvertToDto());
+            }
+
+            return sectionsDto.OrderBy(s => s.Edition.Sort_Key).OrderBy(s => s.Sort_Key).ToList();
+        }
         public Core.Dto.Section Create(Core.Dto.Section sectionDto)
         {
             var section = sectionDto.ConvertToEntity();
+            try
+            {
+                _unitOfWork.BeginTransaction();
+                _unitOfWork.SectionRepository.Create(section);
 
-            _unitOfWork.BeginTransaction();
-            _unitOfWork.SectionRepository.Create(section);
+                sectionDto = section.ConvertToDto();
 
-            sectionDto = section.ConvertToDto();
+                _unitOfWork.Commit();
 
-            _unitOfWork.Commit();
-
-            return sectionDto;
+                return sectionDto;
+            }
+            catch
+            { return sectionDto; }
         }
 
         public Core.Dto.Section Update(Core.Dto.Section sectionDto)

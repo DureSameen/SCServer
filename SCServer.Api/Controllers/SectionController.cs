@@ -19,6 +19,14 @@ namespace SCServer.Api.Controllers
         {
             _sectionService = sectionService;
         }
+         [Route("by_editionid/{editionid}")]
+        [HttpGet]
+        public IList<Core.Dto.Section> By_editionid(Guid editionid)
+        {
+            IList<Core.Dto.Section> sections = _sectionService.GetAllbyEditionId(editionid);
+
+            return sections;
+        }
 
         public IList<Core.Dto.Section> Get()
         {

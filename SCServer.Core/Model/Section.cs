@@ -18,7 +18,7 @@ namespace SCServer.Core.Model
 
         public virtual Edition Edition { get; set; }
 
-        public virtual IList<Module> Modules { get; set; }
+        public  IList<Module> Modules { get; set; }
       
     }
 }

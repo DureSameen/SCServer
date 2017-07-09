@@ -9,5 +9,6 @@ namespace SCServer.Core.IService
 {
     public interface ISectionService : IBaseService<Section, Guid>
     {
+        IList<Core.Dto.Section> GetAllbyEditionId(Guid EditionId);
     }
 }

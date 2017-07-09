@@ -7,7 +7,10 @@ namespace SCServer.Core.Dto
 
     public class Edition : BasicDto
     {
-
+        public Edition()
+        { ModulePrivileges =new List<ModulePrivilege>();
+          Sections =new List<Section>();
+        }
 
         public virtual int Sort_Key { get; set; }
 

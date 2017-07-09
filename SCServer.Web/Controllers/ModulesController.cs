@@ -99,7 +99,7 @@ namespace SCServer.Web.Controllers
         {
             if (ModelState.IsValid)
             {
-                module.Id = Guid.NewGuid();
+               
                 IWebApiHelper webapi = new WebApiHelper("module", false);
                 module = await webapi.Put<Module>(module);
                 return RedirectToAction("Index");

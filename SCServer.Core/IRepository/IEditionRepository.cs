@@ -9,6 +9,6 @@ namespace SCServer.Core.IRepository
 {
     public interface IEditionRepository : IBaseRepository<Edition, Guid>
     {
-        Edition Get(Guid? id);
+        Edition Get(Guid? id, bool include_children = false);
     }
 }

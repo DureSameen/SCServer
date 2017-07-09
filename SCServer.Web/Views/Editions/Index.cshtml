@@ -35,7 +35,7 @@
             @Html.DisplayFor(modelItem => item.Enabled)
         </td>
         <td>
-            @Html.ActionLink("Sections", "Create", "Sections", new { id = item.Id }) |
+            @Html.ActionLink("Sections", "Index", "Sections", new { id = item.Id },null) |
             @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
           
             @Html.ActionLink("Delete", "Delete", new { id=item.Id })

@@ -9,5 +9,6 @@ namespace SCServer.Core.IRepository
 {
     public interface ISectionRepository : IBaseRepository<Section, Guid>
     {
+        IList<Core.Model.Section> GetAllbyEditionId(Guid EditionId);
     }
 }
