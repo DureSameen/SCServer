@@ -30,6 +30,8 @@ namespace SCServer.Web.Models
             return new ApplicationDbContext();
         }
 
-      
+        public System.Data.Entity.DbSet<SCServer.Core.Dto.Edition> Editions { get; set; }
+        public System.Data.Entity.DbSet<SCServer.Core.Dto.Section> Sections { get; set; }
+        public System.Data.Entity.DbSet<SCServer.Core.Dto.Module> Modules { get; set; }
     }
 }

@@ -51,7 +51,7 @@ namespace SCServer.Service
                 editionsDto.Add(edition.ConvertToDto());
             }
 
-            return editionsDto;
+            return editionsDto.OrderBy (e=>e.Sort_Key).ToList ();
         }
 
         public Core.Dto.Edition Create(Core.Dto.Edition editionDto)

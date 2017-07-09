@@ -14,7 +14,7 @@ namespace SCServer.Core.Mapping
         {
             Table("Section");
             Map(x => x.EditionId);
-           
+            Map(x => x.Sort_Key);
         }
     }
 }

@@ -31,17 +31,33 @@ namespace SCServer.Web.Controllers
         }
 
 
-        public ActionResult Buy()
+        public async Task<ActionResult> Buy()
         {
             Customer customer = new Customer();
-            ViewBag.EditionId = 
-   new List<SelectListItem>
-    {
-        new SelectListItem { Selected = true, Text = "Standard", Value = "23e02380-bf3b-4f53-a070-504e4d496fb1"},
-        new SelectListItem { Selected = false, Text = "Professional", Value = "90621209-375e-4276-81d1-969a53771f73" },
-        new SelectListItem { Selected = false, Text = "Ultimate", Value = "443fee9e-89d1-4981-ac69-01c2bbbe0763" },
-    };
+
+
+
+            ViewBag.EditionId = await GetEditions();
+  
             return View(customer);
+        }
+
+        private static async Task<List<SelectListItem>> GetEditions()
+        {
+            IWebApiHelper webapi = new WebApiHelper("edition", false);
+            var all_editions = await webapi.Get<List<Edition>>("");
+
+            var list = new List<SelectListItem>();
+
+            foreach (var edition in all_editions)
+            {
+                var item = new SelectListItem { Selected = false, Text = edition.Name, Value = edition.Id.ToString() };
+                list.Add(item);
+            }
+
+            list.First().Selected = true;
+
+            return list;
         }
         [HttpPost]
         public async Task<ActionResult> Buy(Customer customer)
@@ -49,13 +65,7 @@ namespace SCServer.Web.Controllers
             customer.SecurityKey =   Guid.NewGuid ();
             IWebApiHelper webapi = new WebApiHelper("customer", false);
             Customer c= await webapi.Post<Customer>("", customer);
-            ViewBag.EditionId =
-  new List<SelectListItem>
-    {
-        new SelectListItem { Selected = true, Text = "Standard", Value = "23e02380-bf3b-4f53-a070-504e4d496fb1"},
-        new SelectListItem { Selected = false, Text = "Professional", Value = "90621209-375e-4276-81d1-969a53771f73" },
-        new SelectListItem { Selected = false, Text = "Ultimate", Value = "443fee9e-89d1-4981-ac69-01c2bbbe0763" },
-    };
+            ViewBag.EditionId = await GetEditions();
             return View(c);
         }
 

@@ -47,11 +47,14 @@ namespace SCServer.Service
             IList<Core.Dto.Section> sectionsDto = new List<Core.Dto.Section>();
 
             foreach (var section in sections)
-            {
+            
+            { 
+                section.Edition = _unitOfWork.EditionRepository.Get(section.EditionId.Value);
+
                 sectionsDto.Add(section.ConvertToDto());
             }
 
-            return sectionsDto;
+            return sectionsDto.OrderBy(s => s.Edition.Sort_Key).OrderBy(s => s.Sort_Key).ToList();
         }
 
         public Core.Dto.Section Create(Core.Dto.Section sectionDto)
