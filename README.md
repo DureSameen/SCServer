@@ -21,3 +21,5 @@ MVC Webapi, C#, Unity IoC, Nibernate, FluentNhiberate.
 
 6. SCServer.Servies.Test : Unit testing of service layer.
 
+7. SCServer.Web : This web project provider customer to select software , buy and download installer, this site also provide product management of software editions,  
+
