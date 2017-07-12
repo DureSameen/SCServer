@@ -42,12 +42,15 @@ namespace SCServer.Api.Controllers
             return _moduleService.Update(module);
         }
 
-        public void Delete(Guid id)
+        
+
+        [HttpDelete]
+        public HttpResponseMessage Delete(Guid id)
         {
             _moduleService.Delete(id);
+
+            return new HttpResponseMessage(HttpStatusCode.OK);
         }
-
-
          
 
     }

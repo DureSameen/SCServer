@@ -57,7 +57,7 @@ namespace SCServer.Repository
         {
             _session.Clear();
             _session.Flush();
-            _session.Update(entity);
+            _session.Delete(entity);
         }
     }
 }

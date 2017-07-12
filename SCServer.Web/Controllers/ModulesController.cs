@@ -59,7 +59,7 @@ namespace SCServer.Web.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create([Bind(Include = "Id,Sort_Key,Name,Enabled")] Module module)
+        public async Task<ActionResult> Create([Bind(Include = "Id,Sort_Key,Name,Enabled,TypeName")] Module module)
         {
             if (ModelState.IsValid)
             {
@@ -95,7 +95,7 @@ namespace SCServer.Web.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Edit([Bind(Include = "Id,Sort_Key,Name,Enabled")] Module module)
+        public async Task<ActionResult> Edit([Bind(Include = "Id,Sort_Key,Name,Enabled,TypeName")] Module module)
         {
             if (ModelState.IsValid)
             {

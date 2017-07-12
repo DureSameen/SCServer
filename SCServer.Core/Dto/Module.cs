@@ -7,6 +7,11 @@ namespace SCServer.Core.Dto
 
     public class Module : BasicDto
     {
+        public Module()
+        {
+            ModulePrivileges = new List<ModulePrivilege>();
+            Features = new List<Feature>();
+        }
 
         public virtual string TypeName { get; set; }
 
