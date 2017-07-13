@@ -20,3 +20,4 @@ namespace SCServer.Core.Dto
         public virtual IList<Feature> Features { get; set; }
     }
 }
+//edit
